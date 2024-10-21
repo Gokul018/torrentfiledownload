@@ -6,7 +6,7 @@ import os
 def add_torrent_file(torrent_file):
     try:
         # Connect to the Transmission client
-        client = Client('localhost', port=9091, username='your_username', password='your_password')
+        client = Client(host='localhost', port=9091, username='your_username', password='your_password')
 
         # Add the torrent file to Transmission
         torrent = client.add_torrent(torrent_file)
@@ -16,7 +16,7 @@ def add_torrent_file(torrent_file):
 
 def get_torrent_status(torrent_id):
     try:
-        client = Client('localhost', port=9091, username='your_username', password='your_password')
+        client = Client(host='localhost', port=9091, username='your_username', password='your_password')
         torrent = client.get_torrent(torrent_id)
         return torrent.status, torrent.progress
     except Exception as e:
